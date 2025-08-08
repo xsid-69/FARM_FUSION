@@ -1,0 +1,307 @@
+/* General Body Styles */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+}
+
+/* Navigation Bar */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    background-color: #52d141;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    flex-wrap: wrap;
+}
+
+.nav-wrapper img {
+    height: 50px;
+}
+
+.nav-wrapper ul.right {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sidenav-trigger {
+    font-size: 2rem;
+    cursor: pointer;
+    display: none; /* Hidden by default, shown in media query */
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    text-align: center;
+    color: white;
+    height: 100vh;
+    width: 100%;
+}
+
+.hero video {
+    object-fit: cover;
+    height: 100vh;
+    width: 100%;
+}
+
+.hero .hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 8vw;
+    max-width: 90vw;
+}
+
+.hero .hero-text h1 {
+    font-size: 10vw;
+    margin: 0;
+    font-family: "Oleo Script", serif;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.hero .hero-text h4 {
+    font-size: 1.5vw;
+    font-weight: 700;
+    text-decoration: underline;
+    margin-bottom: 0.5em;
+}
+
+.hero .hero-text p {
+    font-size: 1.5vw;
+    margin: 10px 0;
+}
+
+.hero .hero-text button {
+    background-color: #f4b41a;
+    border-radius: 20px;
+    border: none;
+    padding: 15px 20px;
+    font-size: 1.5vw;
+    cursor: pointer;
+    margin: 30px 15px 0 15px;
+    transition: background-color 0.3s ease;
+}
+
+.hero .hero-text button:hover {
+    background-color: #e0a90f;
+}
+
+/* Services Section (Hero2) */
+.hero2 {
+    background: linear-gradient(90deg, rgba(35, 179, 4, 1) 16%, rgba(172, 173, 255, 1) 90%);
+    background-size: cover;
+    background-position: center;
+    padding: 0;
+    text-align: center;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: white;
+    position: relative;
+}
+
+.hero2 h1 {
+    padding-top: 5vw;
+    font-family: "Oleo Script", serif;
+    color: black;
+    z-index: 10;
+    position: relative;
+}
+
+/* Swiper Carousel */
+.swiper {
+    width: 100%;
+    height: 60vh;
+    padding-top: 3vw;
+    padding-bottom: 50px;
+    z-index: 11;
+    position: relative;
+}
+
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: #111;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+.info {
+    text-align: center;
+    font-size: 1.6vw;
+    padding: 10px 5px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-weight: 700;
+    flex-grow: 0;
+}
+
+/* Transparent Spacer Div */
+.rel {
+    height: 100px;
+    width: 100%;
+    background-color: transparent;
+}
+
+/* Footer */
+footer.footer {
+    background-color: #52d141;
+    color: #222;
+    padding: 40px 10px;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+footer.footer .columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1200px;
+    width: 100%;
+    justify-content: space-around;
+}
+
+footer.footer .column {
+    flex: 1 1 200px;
+    min-width: 200px;
+}
+
+footer.footer h3 {
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+    color: #111;
+}
+
+footer.footer p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    font-weight: normal;
+    color: #111;
+}
+
+footer.footer p a {
+    color: #111;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+footer.footer p a:hover {
+    text-decoration: underline;
+}
+
+footer.footer .social {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+footer.footer .social a {
+    color: #111;
+    margin: 0 12px;
+    font-size: 1.5rem;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+footer.footer .social a:hover {
+    color: #f4b41a;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-wrapper {
+        justify-content: space-between;
+    }
+
+    .sidenav-trigger {
+        display: block;
+    }
+
+    ul.right.hide-on-med-and-down {
+        display: none !important;
+    }
+
+    .hero .hero-text {
+        padding: 5vw 6vw;
+        text-align: center;
+    }
+
+    .hero .hero-text h1 {
+        font-size: 12vw;
+    }
+
+    .hero .hero-text h4,
+    .hero .hero-text p {
+        font-size: 4vw;
+    }
+
+    .hero .hero-text button {
+        font-size: 4vw;
+        padding: 12px 16px;
+        margin: 20px 10px 0 10px;
+    }
+
+    .swiper {
+        height: 50vh;
+    }
+
+    .swiper-slide {
+        width: 80vw !important;
+        height: 40vh !important;
+    }
+
+    .info {
+        font-size: 4vw !important;
+        padding: 8px 10px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero .hero-text h1 {
+        font-size: 14vw;
+    }
+
+    .hero .hero-text h4,
+    .hero .hero-text p {
+        font-size: 5vw;
+    }
+
+    .hero .hero-text button {
+        font-size: 5vw;
+        padding: 12px 14px;
+        margin: 15px 8px 0 8px;
+    }
+}

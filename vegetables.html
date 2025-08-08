@@ -1,0 +1,884 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+    FARM FUSION
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link rel="shortcut icon" href="yy.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #1a1a1a;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        .sidebar {
+            width: 30vw;
+            height: 100vh;
+            background-color: #111;
+            padding: 20px;
+            box-sizing: border-box;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-y: auto;
+        }
+        .main-content {
+            margin-left: 30vw;
+            padding: 20px;
+            box-sizing: border-box;
+            flex: 1;
+        }
+        .header {
+            background-color: #111;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .header img {
+            height: 40px;
+        }
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        .nav a {
+            color: #a3ff12;
+            text-decoration: none;
+            font-weight: 500;
+            display: block;
+            padding: 10px 0;
+            transition: background-color 0.3s ease;
+        }
+        .nav a:hover {
+            background-color: #333;
+        }
+        .cart {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            color: #a3ff12;
+        }
+        .breadcrumb {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .breadcrumb a {
+            color: #a3ff12;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .breadcrumb span {
+            color: #fff;
+        }
+        .shop-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .shop-title h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+        .shop-title p {
+            color: #aaa;
+        }
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            position: sticky;
+            top: 0;
+            background-color: #1a1a1a;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+        .categories a {
+            color: #a3ff12;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .categories a:hover {
+            text-decoration: underline;
+        }
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 0 20px;
+        }
+        .product {
+            background-color: #222;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+            border-radius: 10px;
+            position: relative;
+        }
+        .product img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        .product h3 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .product .price {
+            color: #a3ff12;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        .product .old-price {
+            text-decoration: line-through;
+            color: #aaa;
+            font-size: 14px;
+        }
+        .product .rating {
+            color: #ff0;
+            margin: 10px 0;
+        }
+        .product .sale {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #a3ff12;
+            color: #000;
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .pagination a {
+            color: #a3ff12;
+            text-decoration: none;
+            padding: 10px 15px;
+            background-color: #222;
+            border-radius: 5px;
+        }
+        .pagination a:hover {
+            background-color: #333;
+        }
+        .seo-text {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .seo-text .box {
+            background-color: #222;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            flex: 1;
+        }
+        .seo-text .box img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .footer {
+            background-color: #111;
+            padding: 20px;
+            text-align: center;
+        }
+        .footer .columns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .footer .column {
+            flex: 1;
+            text-align: left;
+        }
+        .footer .column h3 {
+            color: #a3ff12;
+            margin-bottom: 10px;
+        }
+        .footer .column p, .footer .column a {
+            color: #aaa;
+            text-decoration: none;
+        }
+        .footer .column a:hover {
+            text-decoration: underline;
+        }
+        .footer .social {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .footer .social a {
+            color: #a3ff12;
+            font-size: 20px;
+        }
+        .footer .social a:hover {
+            color: #fff;
+        }
+        .footer .copyright {
+            color: #aaa;
+        }
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            .main-content {
+                margin-left: 0;
+            }
+            .products {
+                padding: 0;
+            }
+            .product {
+                width: 100%;
+            }
+        }
+  </style>
+ </head>
+ <body>
+  <div class="sidebar">
+   <header class="header">
+    <img alt="Agria Logo" height="40" src="https://storage.googleapis.com/a1aa/image/eyJK-RkTXuFzs0Il0RGS5s1MCuI9zyunqOunF9DK7wY.jpg" width="40"/>
+    <nav class="nav">
+     <a href="#">
+      About
+     </a>
+     <a href="#">
+      Products
+     </a>
+     <a href="#">
+      Services
+     </a>
+     <a href="#">
+      News
+     </a>
+    </nav>
+    <div class="cart">
+     <i class="fas fa-shopping-cart">
+     </i>
+     Cart: 0 items
+    </div>
+   </header>
+   <div class="horizontal-divs">
+    <div class="horizontal-div" style="background-color: #333; padding: 20px; margin-top: 20px; transition: background-color 0.3s ease;">
+     <p>
+      Horizontal Div 1
+     </p>
+    </div>
+   <a href=""> <div onclick="showPage('pulsesPage')" class="horizontal-div" style="background-color: #444; padding: 20px; margin-top: 20px; transition: background-color 0.3s ease;">
+    <p>
+     Horizontal Div 2
+    </p>
+   </div></a>
+   <a href=""> <div onclick="showPage('vegiePage')" class="horizontal-div" style="background-color: #555; padding: 20px; margin-top: 20px; transition: background-color 0.3s ease;">
+    <p>
+     Horizontal Div 3
+    </p>
+   </div></a>
+   </div>
+  </div>
+  <div class="main-content">
+   <div class="breadcrumb">
+    <a href="#">
+     Home
+    </a>
+    <span>
+     /
+    </span>
+    <a href="#">
+     Shop
+    </a>
+   </div>
+   <div class="shop-title">
+    <h1>
+     Shop
+    </h1>
+    <p>
+     Malesuada proin libero nunc consequat interdum varius sit amet mattis. Posuere lorem ipsum dolor sit amet consectetur adipiscing elit.
+    </p>
+   </div>
+   <div class="categories">
+    <a href="#">
+     All Products
+    </a>
+    <a href="#">
+     Equipments
+    </a>
+    <a href="#">
+      Farming Vehicles
+    </a>
+    <a href="#">
+     Fruits
+    </a>
+    <a href="#">
+     Vegetables
+    </a>
+    <a href="#">
+     
+    </a>
+   </div>
+
+
+
+   <div class="products  page" id="vegiePage">
+    <div class="product page1">
+     <img alt="Green Cabbage" height="100" src="https://storage.googleapis.com/a1aa/image/z0N7xrISIA2J3hxRTjXqwX0OfWzTKhH_s_n9FSXfCQQ.jpg" width="100"/>
+     <h3>
+      Green Cabbage
+     </h3>
+     <div class="rating">
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+     </div>
+     <div class="price">
+      39  Rs/KG
+     </div>
+    </div>
+    <div class="product">
+     <img alt="Red Apples" height="100" src="https://storage.googleapis.com/a1aa/image/2IrFgowKloSajNxyTzZGvSyjY87nNJvjWCDAlkDhNZU.jpg" width="100"/>
+     <h3>
+      Red Apples
+     </h3>
+     <div class="rating">
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+     </div>
+     <div class="old-price">
+      100  Rs/KG
+     </div>
+     <div class="price">
+    69  Rs/KG
+     </div>
+     <div class="sale">
+      SALE
+     </div>
+    </div>
+    <div class="product">
+     <img alt="Unsalted Butter 200g" height="100" src="https://storage.googleapis.com/a1aa/image/sAHG--RFxczLjavdU0Mb6w_51dliMWNmqmbtDONZpxo.jpg" width="100"/>
+     <h3>
+      Unsalted Butter 200g
+     </h3>
+     <div class="rating">
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+     </div>
+     <div class="price">
+      69  Rs/KG
+     </div>
+    </div>
+    <div class="product">
+     <img alt="Pepper, Yellow" height="100" src="https://storage.googleapis.com/a1aa/image/b4jz9SiU2YomQvyXMVMN-3fHfgcmmzpVg7A5aZ-UP7g.jpg" width="100"/>
+     <h3>
+      Pepper, Yellow
+     </h3>
+     <div class="rating">
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+     </div>
+     <div class="price">
+     33  Rs/KG
+     </div>
+    </div>
+    <div class="product">
+     <img alt="Corn" height="100" src="https://storage.googleapis.com/a1aa/image/Kyj5WcbOj5hJ30m_tKqSPGUHkVFmSlXJJtqVavzSPrc.jpg" width="100"/>
+     <h3>
+      Corn
+     </h3>
+     <div class="rating">
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+     </div>
+     <div class="price">
+      39  Rs/KG
+     </div>
+    </div>
+    <div class="product">
+     <img alt="Cabbage" height="100" src="https://storage.googleapis.com/a1aa/image/Q-l65r0nyrHc-iJfkbsiD8MSXspbmT3fIudyeh8RGMg.jpg" width="100"/>
+     <h3>
+      Cabbage
+     </h3>
+     <div class="rating">
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+     </div>
+     <div class="price">
+      49  Rs/KG
+     </div>
+    </div>
+    <div class="product">
+     <img alt="Cauliflower" height="100" src="https://storage.googleapis.com/a1aa/image/s1ddRZHi6oqatZDlae9lSl1h4ZxHi551nXS7WihLQcU.jpg" width="100"/>
+     <h3>
+      Cauliflower
+     </h3>
+     <div class="rating">
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+     </div>
+     <div class="old-price">
+    80  Rs/KG
+     </div>
+     <div class="price">
+    49  Rs/KG
+     </div>
+     <div class="sale">
+      SALE
+     </div>
+    </div>
+    <div class="product">
+     <img alt="Zucchini, Organic" height="100" src="https://storage.googleapis.com/a1aa/image/CU5CtowypUDVvkKMYAcGh_5Up22gofVFZX9BE6TpiYg.jpg" width="100"/>
+     <h3>
+      Zucchini, Organic
+     </h3>
+     <div class="rating">
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+     </div>
+     <div class="price">
+     30  Rs/KG
+     </div>
+    </div>
+    <div class="product">
+     <img alt="Grapes, Green Seedless" height="100" src="https://storage.googleapis.com/a1aa/image/lE-Bdr7JXObKK0v-C-7edERgDEBSArpJ-fm38dlV9p4.jpg" width="100"/>
+     <h3>
+      Grapes, Green Seedless
+     </h3>
+     <div class="rating">
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+     </div>
+     <div class="price">
+    29  Rs/KG
+     </div>
+    </div>
+    <div class="product">
+     <img alt="Fresh Range Eggs x6" height="100" src="https://storage.googleapis.com/a1aa/image/0Xyxgs16ngsZiGMre7_xFGYNK7JAE0A0Hj9NOwbzlpE.jpg" width="100"/>
+     <h3>
+      Fresh Range Eggs x6
+     </h3>
+     <div class="rating">
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+     </div>
+     <div class="price">
+     54  Rs/KG
+     </div>
+    </div>
+   
+
+
+      <div class="pulses page" id="pulsesPage">
+        <div class="products  page">
+            <div class="product page1">
+             <img alt="Green Cabbage" height="100" src="/img/wheat.jpg" width="100"/>
+             <h3>
+              Green Cabbage
+             </h3>
+             <div class="rating">
+              <i class="fas fa-star">
+              </i>
+              <i class="fas fa-star">
+              </i>
+              <i class="fas fa-star">
+              </i>
+              <i class="fas fa-star">
+              </i>
+              <i class="fas fa-star">
+              </i>
+             </div>
+             <div class="price">
+              40  Rs/KG
+             </div>
+            </div>
+            <div class="product">
+             <img alt="Red Apples" height="100" src="https://storage.googleapis.com/a1aa/image/2IrFgowKloSajNxyTzZGvSyjY87nNJvjWCDAlkDhNZU.jpg" width="100"/>
+             <h3>
+              Red Apples
+             </h3>
+             <div class="rating">
+              <i class="fas fa-star">
+              </i>
+              <i class="fas fa-star">
+              </i>
+              <i class="fas fa-star">
+              </i>
+              <i class="fas fa-star">
+              </i>
+              <i class="fas fa-star">
+              </i>
+             </div>
+             <div class="old-price">
+            100  Rs/KG
+             </div>
+             <div class="price">
+              60  Rs/KG
+             </div>
+             <div class="sale">
+              SALE
+             </div>
+            </div>
+            <div class="product">
+             <img alt="Unsalted Butter 200g" height="100" src="https://storage.googleapis.com/a1aa/image/sAHG--RFxczLjavdU0Mb6w_51dliMWNmqmbtDONZpxo.jpg" width="100"/>
+             <h3>
+              Unsalted Butter 200g
+             </h3>
+             <div class="rating">
+              <i class="fas fa-star">
+              </i>
+              <i class="fas fa-star">
+              </i>
+              <i class="fas fa-star">
+              </i>
+              <i class="fas fa-star">
+              </i>
+              <i class="fas fa-star">
+              </i>
+             </div>
+             <div class="price">
+             50  Rs/KG
+             </div>
+            </div>
+            <div class="product">
+             <img alt="Pepper, Yellow" height="100" src="https://storage.googleapis.com/a1aa/image/b4jz9SiU2YomQvyXMVMN-3fHfgcmmzpVg7A5aZ-UP7g.jpg" width="100"/>
+             <h3>
+              Pepper, Yellow
+             </h3>
+             <div class="rating">
+              <i class="fas fa-star">
+              </i>
+              <i class="fas fa-star">
+              </i>
+              <i class="fas fa-star">
+              </i>
+              <i class="fas fa-star">
+              </i>
+              <i class="fas fa-star">
+              </i>
+             </div>
+             <div class="price">
+             40  Rs/KG
+             </div>
+            </div>
+            <div class="product">
+             <img alt="Corn" height="100" src="https://storage.googleapis.com/a1aa/image/Kyj5WcbOj5hJ30m_tKqSPGUHkVFmSlXJJtqVavzSPrc.jpg" width="100"/>
+             <h3>
+              Corn
+             </h3>
+             <div class="rating">
+              <i class="fas fa-star">
+              </i>
+              <i class="fas fa-star">
+              </i>
+              <i class="fas fa-star">
+              </i>
+              <i class="fas fa-star">
+              </i>
+              <i class="fas fa-star">
+              </i>
+             </div>
+             <div class="price">
+             30  Rs/KG
+             </div>
+            </div>
+            <div class="product">
+             <img alt="Cabbage" height="100" src="https://storage.googleapis.com/a1aa/image/Q-l65r0nyrHc-iJfkbsiD8MSXspbmT3fIudyeh8RGMg.jpg" width="100"/>
+             <h3>
+              Cabbage
+             </h3>
+             <div class="rating">
+              <i class="fas fa-star">
+              </i>
+              <i class="fas fa-star">
+              </i>
+              <i class="fas fa-star">
+              </i>
+              <i class="fas fa-star">
+              </i>
+              <i class="fas fa-star">
+              </i>
+             </div>
+             <div class="price">
+              50  Rs/KG
+             </div>
+            </div>
+            <div class="product">
+             <img alt="Cauliflower" height="100" src="https://storage.googleapis.com/a1aa/image/s1ddRZHi6oqatZDlae9lSl1h4ZxHi551nXS7WihLQcU.jpg" width="100"/>
+             <h3>
+              Cauliflower
+             </h3>
+             <div class="rating">
+              <i class="fas fa-star">
+              </i>
+              <i class="fas fa-star">
+              </i>
+              <i class="fas fa-star">
+              </i>
+              <i class="fas fa-star">
+              </i>
+              <i class="fas fa-star">
+              </i>
+             </div>
+             <div class="old-price">
+              60.00 Rs/KG
+             </div>
+             <div class="price">
+              40.00 Rs/KG
+             </div>
+             <div class="sale">
+              SALE
+             </div>
+            </div>
+            <div class="product">
+             <img alt="Zucchini, Organic" height="100" src="https://storage.googleapis.com/a1aa/image/CU5CtowypUDVvkKMYAcGh_5Up22gofVFZX9BE6TpiYg.jpg" width="100"/>
+             <h3>
+              Zucchini, Organic
+             </h3>
+             <div class="rating">
+              <i class="fas fa-star">
+              </i>
+              <i class="fas fa-star">
+              </i>
+              <i class="fas fa-star">
+              </i>
+              <i class="fas fa-star">
+              </i>
+              <i class="fas fa-star">
+              </i>
+             </div>
+             <div class="price">
+              400 Rs/KG
+             </div>
+            </div>
+            <div class="product">
+             <img alt="Grapes, Green Seedless" height="100" src="https://storage.googleapis.com/a1aa/image/lE-Bdr7JXObKK0v-C-7edERgDEBSArpJ-fm38dlV9p4.jpg" width="100"/>
+             <h3>
+              Grapes, Green Seedless
+             </h3>
+             <div class="rating">
+              <i class="fas fa-star">
+              </i>
+              <i class="fas fa-star">
+              </i>
+              <i class="fas fa-star">
+              </i>
+              <i class="fas fa-star">
+              </i>
+              <i class="fas fa-star">
+              </i>
+             </div>
+             <div class="price">
+               306.00 Rs/KG
+             </div>
+            </div>
+            <div class="product">
+             <img alt="Fresh Range Eggs x6" height="100" src="https://storage.googleapis.com/a1aa/image/0Xyxgs16ngsZiGMre7_xFGYNK7JAE0A0Hj9NOwbzlpE.jpg" width="100"/>
+             <h3>
+              Fresh Range Eggs x6
+             </h3>
+             <div class="rating">
+              <i class="fas fa-star">
+              </i>
+              <i class="fas fa-star">
+              </i>
+              <i class="fas fa-star">
+              </i>
+              <i class="fas fa-star">
+              </i>
+              <i class="fas fa-star">
+              </i>
+             </div>
+             <div class="price">
+              $5.49
+             </div>
+            </div>
+           
+      </div>
+     <script>
+        function showPage(pageId) {
+      // Hide all pages
+      document.querySelectorAll('.page').forEach(div => div.style.display = 'none');
+      // Show the selected page
+      document.getElementById(pageId).style.display = 'block';
+    }
+     </script>
+      <footer class="footer">
+        <div class="columns">
+         <div class="column">
+          <h3>
+           Explore
+          </h3>
+          <p>
+           <a href="#">
+            About
+           </a>
+          </p>
+          <p>
+           <a href="#">
+            Projects
+           </a>
+          </p>
+          <p>
+           <a href="#">
+            Service
+           </a>
+          </p>
+          <p>
+           <a href="#">
+            Glossary
+           </a>
+          </p>
+         </div>
+         <div class="column">
+          <h3>
+           News
+          </h3>
+          <p>
+           OCTOBER 28, 2022
+          </p>
+          <p>
+           <a href="#">
+            Placerat vestibulum lectus mauris ultrices
+           </a>
+          </p>
+          <p>
+           OCTOBER 28, 2022
+          </p>
+          <p>
+           <a href="#">
+            Placerat vestibulum lectus mauris ultrices
+           </a>
+          </p>
+         </div>
+         <div class="column">
+          <h3>
+           Contacts
+          </h3>
+          <p>
+           <i class="fas fa-phone">
+           </i>
+           (000) 123 456
+          </p>
+          <p>
+           <i class="fas fa-envelope">
+           </i>
+           company@agria.com
+          </p>
+          <p>
+           <i class="fas fa-map-marker-alt">
+           </i>
+           25 Eucalypt Avenue, NE Albuquerque, 87110 United States
+          </p>
+         </div>
+        </div>
+        <div class="social">
+         <a href="#">
+          <i class="fab fa-facebook-f">
+          </i>
+         </a>
+         <a href="#">
+          <i class="fab fa-twitter">
+          </i>
+          &lt;/
+         </a>
+        </div>
+       </footer>
+      
+   </body>
+   </html>

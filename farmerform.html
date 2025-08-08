@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="shortcut icon" href="yy.ico" type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-green-400 to-green-700 flex justify-center items-center min-h-screen">
+
+    <div class="bg-white p-5 rounded-lg shadow-lg w-96">
+        <h2 class="text-2xl font-bold text-center text-gray-800 mb-4">Registration Form</h2>
+        <form action="submit.php" method="POST">
+            <div class="mb-3">
+                <label class="form-label">First Name:</label>
+                <input type="text" name="first_name" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Last Name:</label>
+                <input type="text" name="last_name" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Phone (India Only):</label>
+                <input type="text" name="phone" pattern="[6-9][0-9]{9}" class="form-control" title="Enter a valid 10-digit Indian phone number" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">State:</label>
+                <select id="state" name="state" class="form-select" required></select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">City:</label>
+                <select id="city" name="city" class="form-select" required></select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Email:</label>
+                <input type="email" name="email" class="form-control" required>
+            </div>
+
+            <button type="submit" class="w-full bg-green-600 text-white py-2 rounded hover:bg-green-800">Submit</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
